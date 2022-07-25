@@ -11,7 +11,10 @@ public class UserServlet extends HttpServlet {
     private static final String QUERY_PARAMETER_NICKNAME = "nickname";
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void service(
+            HttpServletRequest request,// Model
+            HttpServletResponse response// Model
+    ) throws IOException {
 
         String nickname = request.getParameter(QUERY_PARAMETER_NICKNAME);
         PrintWriter out = response.getWriter();
