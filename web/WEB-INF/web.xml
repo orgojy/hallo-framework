@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WAS Tomcat 에서 자체 설정을 위한 파일 -->
+<web-app>
+  <!-- (2) Forwarded request => Call controller -->
+  <servlet>
+    <servlet-name>waf</servlet-name>
+    <servlet-class>com.code5.fw.web.UserController
+    </servlet-class>
+  </servlet>
+
+  <!-- (1) Request "http://localhost:8080/waf/users => PC => WAS => Pattern matching "/waf/" => servlet reverse forwarding -->
+  <servlet-mapping>
+    <servlet-name>waf</servlet-name>
+    <url-pattern>/waf/*</url-pattern>
+  </servlet-mapping>
+</web-app>
