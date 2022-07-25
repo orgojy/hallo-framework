@@ -1,4 +1,4 @@
-package com.biz.board;
+package com.halloframework.biz.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;

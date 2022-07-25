@@ -4,7 +4,7 @@
   <!-- (2) Forwarded request => Call controller -->
   <servlet>
     <servlet-name>waf</servlet-name>
-    <servlet-class>com.code5.fw.web.UserController
+    <servlet-class>com.halloframework.fw.web.UserController
     </servlet-class>
   </servlet>
 
