@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UserServlet extends HttpServlet {
 
+    private static final String QUERY_PARAMETER_NICKNAME = "nickname";
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nickname = request.getParameter("nickname");
+        String nickname = request.getParameter(QUERY_PARAMETER_NICKNAME);
         PrintWriter out = response.getWriter();
 
         if ("Ryan".equalsIgnoreCase(nickname)) {
