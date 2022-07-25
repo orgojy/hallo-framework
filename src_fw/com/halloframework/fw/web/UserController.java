@@ -17,10 +17,10 @@ public class UserController extends HttpServlet {
 
         String jspUrl = null;
 
-        if ("/waf/users".contains(pathInfo)) {
+        if ("/users".equals(pathInfo)) {
             User user = new User();
             jspUrl = user.getInfo(request);
-        } else if ("/waf/etc".contains(pathInfo)) {
+        } else if ("/etc".contains(pathInfo)) {
             User user = new User();
             jspUrl = user.getEtc(request);
         }
