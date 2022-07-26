@@ -27,10 +27,10 @@ public class HalloApplication {
             return;
         }
         /**
-         *
+         * Web Application 의 이름 설정
          */
         Properties properties = System.getProperties();
-        properties.setProperty("com.code5.app.name", "CODE5");
+        properties.setProperty(InitYaml.APP_NAME_PROPERTY, "Hallo");
         /**
          * Tomcat 생성
          */
