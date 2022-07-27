@@ -12,7 +12,7 @@ public class YamlReader {
         try {
             ClassLoader cl = YamlReader.class.getClassLoader();
 
-            yamlName = yamlName.replaceAll("\\.", "\\/").concat(".yaml");
+            yamlName = yamlName.replace("\\.", "\\/").concat(".yaml");
 
             inputStream = cl.getResourceAsStream(yamlName);
 
