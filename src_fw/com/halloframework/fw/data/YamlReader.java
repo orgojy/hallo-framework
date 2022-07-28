@@ -8,18 +8,17 @@ public class YamlReader {
 
     public static Map<String, Object> getMap(String yamlName) {
         InputStream inputStream = null;
+        String yamlFileName = yamlName.replace("\\.", "\\/").concat(".yaml");
 
         try {
             ClassLoader cl = YamlReader.class.getClassLoader();
 
-            yamlName = yamlName.replace("\\.", "\\/").concat(".yaml");
-
-            inputStream = cl.getResourceAsStream(yamlName);
+            inputStream = cl.getResourceAsStream(yamlFileName);
 
             Yaml yaml = new Yaml();
             Map<String, Object> map = yaml.load(inputStream);
 
-            String path = cl.getResource(yamlName).getPath();
+            String path = cl.getResource(yamlFileName).getPath();
             map.put("THIS_YAML_URL", path);
 
             return map;
