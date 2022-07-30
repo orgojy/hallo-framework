@@ -88,7 +88,6 @@ public class HalloApplication {
                 socket.close();
             }
         }
-
     }
 
     private static Tomcat tomcat(String tempDir, String webappDir, int port) {
