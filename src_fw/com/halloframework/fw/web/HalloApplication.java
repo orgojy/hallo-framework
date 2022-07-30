@@ -9,6 +9,7 @@ import org.apache.catalina.startup.Tomcat;
 public class HalloApplication {
 
     private static final int WAS_PORT_NUMBER = 18080;
+    private static final String APP_NAME = "Hallo";
 
     public static void main(String[] args) throws Exception {
         /**
@@ -30,7 +31,7 @@ public class HalloApplication {
          * Web Application 의 이름 설정
          */
         Properties properties = System.getProperties();
-        properties.setProperty(InitYaml.APP_NAME_PROPERTY, "Hallo");
+        properties.setProperty(InitYaml.APP_NAME_PROPERTY, APP_NAME);
         /**
          * Tomcat 생성
          */
