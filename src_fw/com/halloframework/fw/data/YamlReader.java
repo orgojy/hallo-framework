@@ -4,7 +4,11 @@ import java.io.InputStream;
 import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
 
-public class YamlReader {
+public final class YamlReader {
+
+    private YamlReader() {
+        throw new AssertionError();
+    }
 
     public static Map<String, Object> getMap(String yamlName) {
         InputStream inputStream = null;
