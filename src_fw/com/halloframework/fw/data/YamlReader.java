@@ -2,6 +2,7 @@ package com.halloframework.fw.data;
 
 import java.io.InputStream;
 import java.util.Map;
+import java.util.Objects;
 import org.yaml.snakeyaml.Yaml;
 
 public final class YamlReader {
@@ -22,7 +23,7 @@ public final class YamlReader {
             Yaml yaml = new Yaml();
             Map<String, Object> map = yaml.load(inputStream);
 
-            String path = cl.getResource(yamlFileName).getPath();
+            String path = Objects.requireNonNull(cl.getResource(yamlFileName)).getPath();
             map.put("THIS_YAML_URL", path);
 
             return map;
