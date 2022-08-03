@@ -1,6 +1,7 @@
 package com.halloframework.fw.data;
 
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 import org.yaml.snakeyaml.Yaml;
@@ -29,7 +30,7 @@ public final class YamlReader {
             return map;
         } catch (Exception ex) {
             ex.printStackTrace();
-            return null;
+            return Collections.emptyMap();
         } finally {
             if (inputStream != null) {
                 try {

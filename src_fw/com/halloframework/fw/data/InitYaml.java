@@ -81,7 +81,7 @@ public class InitYaml {
 
 		this.map = YamlReader.getMap("init");
 
-		if (this.map == null) {
+		if (this.map.isEmpty()) {
 			return;
 		}
 
