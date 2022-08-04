@@ -9,6 +9,7 @@ import java.util.Properties;
 public class InitYaml {
 
 	public static final String APP_NAME_PROPERTY = "com.halloframework.app.name";
+	private static final String HOST_NAME_DEFAULT = "DEFAULT";
 
 	private static InitYaml thisInc = new InitYaml();
 
@@ -85,12 +86,12 @@ public class InitYaml {
 			return;
 		}
 
-		this.hostName = "DEFAULT";
+		this.hostName = HOST_NAME_DEFAULT;
 
 		try {
 			this.hostName = InetAddress.getLocalHost().getHostName();
 			if (this.hostName.contains(".")) {
-				this.hostName = "DEFAULT";
+				this.hostName = HOST_NAME_DEFAULT;
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -150,7 +151,7 @@ public class InitYaml {
 			return obj;
 		}
 
-		obj = _get(key + "." + "DEFAULT");
+		obj = _get(key + "." + HOST_NAME_DEFAULT);
 		if (obj != null) {
 			return obj;
 		}
