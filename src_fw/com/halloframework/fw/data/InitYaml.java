@@ -11,7 +11,7 @@ public class InitYaml {
     public static final String APP_NAME_PROPERTY = "com.halloframework.app.name";
     private static final String HOST_NAME_DEFAULT = "DEFAULT";
 
-    private static InitYaml thisInc = new InitYaml();
+    private static final InitYaml thisInc = new InitYaml();
 
     public static InitYaml get() {
         return thisInc;
@@ -228,9 +228,7 @@ public class InitYaml {
     public boolean is(String key) {
         Object obj = get(key);
         if (obj instanceof String) {
-            if ("true".equals((String) obj)) {
-                return true;
-            }
+			return "true".equals(obj);
         }
         return false;
     }
