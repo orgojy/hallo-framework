@@ -45,7 +45,6 @@ public class InitYaml {
     }
 
     public void setAppName(String appName) {
-
         if (this.appName != null) {
             return;
         }
@@ -76,7 +75,6 @@ public class InitYaml {
     private String webAppDir = null;
 
     private InitYaml() {
-
         Properties properties = System.getProperties();
         this.appName = properties.getProperty(APP_NAME_PROPERTY);
 
@@ -98,9 +96,7 @@ public class InitYaml {
         }
 
         this.isCache = is("CACHE");
-
         this.isProduct = is("PRODUCT");
-
         this.characterSet = s("CHARACTER_SET");
 
         String yamlUrl = s("THIS_YAML_URL");
@@ -121,12 +117,9 @@ public class InitYaml {
         file = file.getParentFile();
 
         this.appRoot = file.getAbsolutePath();
-
         this.webPort = Integer.parseInt(s("WEB_PORT"));
-
         this.webAppDir = new File(s("WEB_APP_DIR")).getAbsolutePath();
         this.tempDir = new File(s("TEMP_DIR")).getAbsolutePath();
-
         isRead = true;
     }
 
@@ -155,12 +148,10 @@ public class InitYaml {
         }
 
         return _get(key);
-
     }
 
     @SuppressWarnings("unchecked")
     private Object _get(String key) {
-
         if (this.map == null) {
             return "";
         }
@@ -170,7 +161,6 @@ public class InitYaml {
         Object obj = this.map;
 
         for (int i = 0; i < keys.length; i++) {
-
             String thisKey = keys[i];
 
             if (!(obj instanceof Map)) {
@@ -194,7 +184,6 @@ public class InitYaml {
         Object obj = get(key);
         if (!(obj instanceof String)) {
             return "";
-
         }
 
         String s = (String) obj;
@@ -220,7 +209,6 @@ public class InitYaml {
         }
 
         return ret;
-
     }
 
     public boolean is(String key) {
