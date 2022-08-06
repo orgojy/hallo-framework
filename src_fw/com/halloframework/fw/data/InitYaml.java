@@ -120,9 +120,7 @@ public class InitYaml {
         // webAppRoot
         file = file.getParentFile();
 
-        String appRoot = file.getAbsolutePath();
-
-        this.appRoot = appRoot;
+        this.appRoot = file.getAbsolutePath();
 
         this.webPort = Integer.parseInt(s("WEB_PORT"));
 
@@ -228,7 +226,7 @@ public class InitYaml {
     public boolean is(String key) {
         Object obj = get(key);
         if (obj instanceof String) {
-			return "true".equals(obj);
+            return "true".equals(obj);
         }
         return false;
     }
