@@ -103,16 +103,12 @@ public class InitYaml {
 
         // webAppRoot/web/WEB-INF/classes/init.yaml
         File file = new File(yamlUrl);
-
         // webAppRoot/web/WEB-INF/classes
         file = file.getParentFile();
-
         // webAppRoot/web/WEB-INF
         file = file.getParentFile();
-
         // webAppRoot/WEB-INF
         file = file.getParentFile();
-
         // webAppRoot
         file = file.getParentFile();
 
