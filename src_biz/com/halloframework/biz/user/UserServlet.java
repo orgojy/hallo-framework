@@ -15,7 +15,6 @@ public class UserServlet extends HttpServlet {
             HttpServletRequest request,// Model
             HttpServletResponse response// Model
     ) throws IOException {
-
         String nickname = request.getParameter(QUERY_PARAMETER_NICKNAME);
         PrintWriter out = response.getWriter();
 
