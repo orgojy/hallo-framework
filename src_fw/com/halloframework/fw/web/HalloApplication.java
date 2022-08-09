@@ -73,21 +73,12 @@ public class HalloApplication {
         System.out.println("webPort [" + init.getWebPort() + "]");
     }
 
-    private static boolean isWebPort(int webPort) throws Exception {
-        Socket socket = null;
-        try {
-            socket = new Socket("localhost", webPort);
+    private static boolean isWebPort(int webPort) {
+        try (Socket socket = new Socket("localhost", webPort)) {
             socket.setSoTimeout(1);
-            if (socket.isConnected()) {
-                return false;
-            }
-            return true;
+            return !socket.isConnected();
         } catch (Exception ex) {
             return true;
-        } finally {
-            if (socket != null) {
-                socket.close();
-            }
         }
     }
 
