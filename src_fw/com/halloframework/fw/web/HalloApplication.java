@@ -40,7 +40,7 @@ public class HalloApplication {
          * Setting : Tomcat Encoding
          */
         String characterSet = init.getCharacterSet();
-        System.out.println("uri characterSet [" + characterSet + "]");
+        System.out.printf("uri characterSet [%s]%n", characterSet);
         Connector conn = tomcat.getConnector();
         conn.setURIEncoding(characterSet);
         /**
