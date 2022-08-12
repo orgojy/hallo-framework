@@ -12,64 +12,14 @@ public class InitYaml {
     private static final String HOST_NAME_DEFAULT = "DEFAULT";
 
     private static final InitYaml thisInc = new InitYaml();
-
-    public static InitYaml get() {
-        return thisInc;
-    }
-
     private Map<String, Object> map = null;
-
     private boolean isRead = false;
-
-    public boolean isRead() {
-        return isRead;
-    }
-
     private String hostName = null;
-
-    public String getHostName() {
-        return hostName;
-    }
-
     private String appRoot = null;
-
-    public String getAppRoot() {
-        InitYaml.get().getAppName();
-        return appRoot;
-    }
-
     private String appName = null;
-
-    public String getAppName() {
-        return appName;
-    }
-
-    public void setAppName(String appName) {
-        if (this.appName != null) {
-            return;
-        }
-
-        this.appName = appName;
-    }
-
     private String characterSet = null;
-
-    public String getCharacterSet() {
-        return characterSet;
-    }
-
     private boolean isProduct = false;
-
-    public boolean isProduct() {
-        return isProduct;
-    }
-
     private boolean isCache = false;
-
-    public boolean isCache() {
-        return isCache;
-    }
-
     private String tempDir = null;
     private int webPort = 0;
     private String webAppDir = null;
@@ -119,6 +69,47 @@ public class InitYaml {
         isRead = true;
     }
 
+    public static InitYaml get() {
+        return thisInc;
+    }
+
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public String getAppRoot() {
+        InitYaml.get().getAppName();
+        return appRoot;
+    }
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        if (this.appName != null) {
+            return;
+        }
+
+        this.appName = appName;
+    }
+
+    public String getCharacterSet() {
+        return characterSet;
+    }
+
+    public boolean isProduct() {
+        return isProduct;
+    }
+
+    public boolean isCache() {
+        return isCache;
+    }
+
     public String getTempDir() {
         return tempDir;
     }
@@ -129,6 +120,44 @@ public class InitYaml {
 
     public String getWebAppDir() {
         return webAppDir;
+    }
+
+    public String s(String key) {
+        Object obj = get(key);
+        if (!(obj instanceof String)) {
+            return "";
+        }
+
+        String s = (String) obj;
+        s = convert$(s);
+        return s;
+    }
+
+    public String[] ss(String key) {
+        Object obj = get(key);
+        if (!(obj instanceof List)) {
+            return new String[]{""};
+        }
+
+        @SuppressWarnings("unchecked")
+        List<String> list = (List<String>) obj;
+
+        String[] ret = new String[list.size()];
+        for (int i = 0; i < ret.length; i++) {
+            String s = list.get(i);
+            s = convert$(s);
+            ret[i] = s;
+        }
+
+        return ret;
+    }
+
+    public boolean is(String key) {
+        Object obj = get(key);
+        if (obj instanceof String) {
+            return "true".equals(obj);
+        }
+        return false;
     }
 
     private Object get(String key) {
@@ -171,43 +200,5 @@ public class InitYaml {
             s = s.replace("[APP_ROOT]", this.appRoot);
         }
         return s;
-    }
-
-    public String s(String key) {
-        Object obj = get(key);
-        if (!(obj instanceof String)) {
-            return "";
-        }
-
-        String s = (String) obj;
-        s = convert$(s);
-        return s;
-    }
-
-    public String[] ss(String key) {
-        Object obj = get(key);
-        if (!(obj instanceof List)) {
-            return new String[]{""};
-        }
-
-        @SuppressWarnings("unchecked")
-        List<String> list = (List<String>) obj;
-
-        String[] ret = new String[list.size()];
-        for (int i = 0; i < ret.length; i++) {
-            String s = list.get(i);
-            s = convert$(s);
-            ret[i] = s;
-        }
-
-        return ret;
-    }
-
-    public boolean is(String key) {
-        Object obj = get(key);
-        if (obj instanceof String) {
-            return "true".equals(obj);
-        }
-        return false;
     }
 }
