@@ -2,6 +2,7 @@ package com.halloframework.fw.data;
 
 import java.io.File;
 import java.net.InetAddress;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -12,7 +13,7 @@ public class InitYaml {
     private static final String HOST_NAME_DEFAULT = "DEFAULT";
 
     private static final InitYaml thisInc = new InitYaml();
-    private Map<String, Object> map = null;
+    private Map<String, Object> map = Collections.emptyMap();
     private boolean isRead = false;
     private String hostName = null;
     private String appRoot = null;
