@@ -14,6 +14,7 @@ public class User {
     }
 
     public String getEtc(HttpServletRequest request) {
+        System.out.println(request.getPathInfo());
         return USER_WRITE_JSP;
     }
 }
