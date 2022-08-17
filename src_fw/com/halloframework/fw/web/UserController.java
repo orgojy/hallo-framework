@@ -10,16 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UserController extends HttpServlet {
 
+    private static final String URI_USERS = "/users";
+    private static final String URI_ETC = "/etc";
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pathInfo = request.getPathInfo();
 
         String jspUrl = null;
 
-        if ("/users".equals(pathInfo)) {
+        if (URI_USERS.equals(pathInfo)) {
             User user = new User();
             jspUrl = user.getInfo(request);
-        } else if ("/etc".contains(pathInfo)) {
+        } else if (URI_ETC.contains(pathInfo)) {
             User user = new User();
             jspUrl = user.getEtc(request);
         }
