@@ -17,7 +17,7 @@ public class UserController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pathInfo = request.getPathInfo();
 
-        String jspUrl = null;
+        String jspUrl = "";
 
         if (URI_USERS.equals(pathInfo)) {
             User user = new User();
@@ -27,7 +27,7 @@ public class UserController extends HttpServlet {
             jspUrl = user.getEtc(request);
         }
 
-        if (jspUrl == null) {
+        if (jspUrl.isEmpty()) {
             throw new ServletException();
         }
 
