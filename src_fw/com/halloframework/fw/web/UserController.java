@@ -16,7 +16,6 @@ public class UserController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pathInfo = request.getPathInfo();
-
         String jspUrl = "";
 
         if (URI_USERS.equals(pathInfo)) {
