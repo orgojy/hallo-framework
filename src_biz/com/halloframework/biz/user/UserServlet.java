@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UserServlet extends HttpServlet {
 
     private static final String QUERY_PARAMETER_NICKNAME = "nickname";
+    private static final String NICKNAME_RYAN = "Ryan";
+    private static final String NICKNAME_MICHAEL = "Michael";
 
     @Override
     protected void service(
@@ -18,12 +20,12 @@ public class UserServlet extends HttpServlet {
         String nickname = request.getParameter(QUERY_PARAMETER_NICKNAME);
         PrintWriter out = response.getWriter();
 
-        if ("Ryan".equalsIgnoreCase(nickname)) {
+        if (NICKNAME_RYAN.equalsIgnoreCase(nickname)) {
             ryan(out);
             return;
         }
 
-        if ("Michael".equalsIgnoreCase(nickname)) {
+        if (NICKNAME_MICHAEL.equalsIgnoreCase(nickname)) {
             michael(out);
             return;
         }
