@@ -34,10 +34,10 @@ public class UserServlet extends HttpServlet {
     }
 
     void ryan(PrintWriter out) {
-        out.print("I'm Ryan.");
+        out.print(String.format("I'm %s.", NICKNAME_RYAN));
     }
 
     void michael(PrintWriter out) {
-        out.print("I'm Michael.");
+        out.print(String.format("I'm %s.", NICKNAME_MICHAEL));
     }
 }
