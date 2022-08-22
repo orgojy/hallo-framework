@@ -33,11 +33,11 @@ public class UserServlet extends HttpServlet {
         out.println("Invalid nickname=" + nickname);
     }
 
-    void ryan(PrintWriter out) {
+    private void ryan(PrintWriter out) {
         out.print(String.format("I'm %s.", NICKNAME_RYAN));
     }
 
-    void michael(PrintWriter out) {
+    private void michael(PrintWriter out) {
         out.print(String.format("I'm %s.", NICKNAME_MICHAEL));
     }
 }
