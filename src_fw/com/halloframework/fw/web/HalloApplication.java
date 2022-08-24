@@ -59,7 +59,7 @@ public class HalloApplication {
                 .append("  `\\__)`\\__)(_) (_)`\\__,_)(___)(___)`\\___/'(_/' (_/'   \n")
                 .append("                                                       \n")
         );
-        System.out.println("\"Hallo Framework\" with Tomcat is started!");
+        System.out.printf("\"%s Framework\" with Tomcat is started!%n", APP_NAME);
         /**
          * Tomcat 대기
          */
