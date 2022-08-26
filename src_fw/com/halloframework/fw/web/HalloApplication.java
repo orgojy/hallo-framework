@@ -6,6 +6,9 @@ import java.util.Properties;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 
+/***
+ * Starting Point
+ */
 public class HalloApplication {
 
     private static final int WAS_PORT_NUMBER = 18080;
