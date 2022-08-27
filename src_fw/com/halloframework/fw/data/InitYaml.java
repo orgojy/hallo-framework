@@ -83,7 +83,6 @@ public class InitYaml {
     }
 
     public String getAppRoot() {
-        InitYaml.get().getAppName();
         return appRoot;
     }
 
