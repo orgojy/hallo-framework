@@ -48,9 +48,9 @@ public class InitYaml {
 
         this.isCache = is("CACHE");
         this.isProduct = is("PRODUCT");
-        this.characterSet = s("CHARACTER_SET");
+        this.characterSet = textValueFromKey("CHARACTER_SET");
 
-        String yamlUrl = s("THIS_YAML_URL");
+        String yamlUrl = textValueFromKey("THIS_YAML_URL");
 
         // webAppRoot/web/WEB-INF/classes/init.yaml
         File file = new File(yamlUrl);
@@ -64,9 +64,9 @@ public class InitYaml {
         file = file.getParentFile();
 
         this.appRoot = file.getAbsolutePath();
-        this.webPort = Integer.parseInt(s("WEB_PORT"));
-        this.webAppDir = new File(s("WEB_APP_DIR")).getAbsolutePath();
-        this.tempDir = new File(s("TEMP_DIR")).getAbsolutePath();
+        this.webPort = Integer.parseInt(textValueFromKey("WEB_PORT"));
+        this.webAppDir = new File(textValueFromKey("WEB_APP_DIR")).getAbsolutePath();
+        this.tempDir = new File(textValueFromKey("TEMP_DIR")).getAbsolutePath();
         isRead = true;
     }
 
@@ -122,7 +122,7 @@ public class InitYaml {
         return webAppDir;
     }
 
-    public String s(String key) {
+    public String textValueFromKey(String key) {
         Object obj = get(key);
         if (!(obj instanceof String)) {
             return "";
