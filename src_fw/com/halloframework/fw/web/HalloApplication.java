@@ -13,6 +13,7 @@ public class HalloApplication {
 
     private static final int WAS_PORT_NUMBER = 18080;
     private static final String APP_NAME = "Hallo";
+    private static final int SOCKET_TIMEOUT_MILLISECOND = 1;
 
     public static void main(String[] args) throws Exception {
         /**
@@ -78,7 +79,7 @@ public class HalloApplication {
 
     private static boolean isWebPort(int webPort) {
         try (Socket socket = new Socket("localhost", webPort)) {
-            socket.setSoTimeout(1);
+            socket.setSoTimeout(SOCKET_TIMEOUT_MILLISECOND);
             return !socket.isConnected();
         } catch (Exception ex) {
             return true;
