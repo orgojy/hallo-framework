@@ -11,6 +11,7 @@ import org.apache.catalina.startup.Tomcat;
  */
 public class HalloApplication {
 
+    private static final InitYaml INIT = InitYaml.get();
     private static final int WAS_PORT_NUMBER = 18080;
     private static final String APP_NAME = "Hallo";
     private static final int SOCKET_TIMEOUT_MILLISECOND = 1;
@@ -19,16 +20,15 @@ public class HalloApplication {
         /**
          * WAS 에 필요한 값들을 정의한 InitYaml 초기화
          */
-        InitYaml init = InitYaml.get();
-        if (!init.isRead()) {
+        if (!INIT.isRead()) {
             return;
         }
-        printInitYaml(init);
+        printInitYaml(INIT);
         /**
          * 이미 사용된 port 인지 확인
          */
-        if (!isWebPort(init.getWebPort())) {
-            System.out.printf("Port# %d is already used.%n", init.getWebPort());
+        if (!isWebPort(INIT.getWebPort())) {
+            System.out.printf("Port# %d is already used.%n", INIT.getWebPort());
             return;
         }
         /**
@@ -39,11 +39,11 @@ public class HalloApplication {
         /**
          * Tomcat 생성
          */
-        Tomcat tomcat = tomcat(init.getTempDir(), init.getWebAppDir(), WAS_PORT_NUMBER);
+        Tomcat tomcat = tomcat(INIT.getTempDir(), INIT.getWebAppDir(), WAS_PORT_NUMBER);
         /**
          * Setting : Tomcat Encoding
          */
-        String characterSet = init.getCharacterSet();
+        String characterSet = INIT.getCharacterSet();
         System.out.printf("uri characterSet [%s]%n", characterSet);
         Connector conn = tomcat.getConnector();
         conn.setURIEncoding(characterSet);
