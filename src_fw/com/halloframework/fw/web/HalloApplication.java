@@ -61,7 +61,7 @@ public class HalloApplication {
                 .append("<  < <  <   |  _  | /'_` ) | |  | |  /'_`\\    >  > >  >\n")
                 .append(" \\  `\\\\  `\\ | | | |( (_| | | |  | | ( (_) ) /' /'/' /' \n")
                 .append("  `\\__)`\\__)(_) (_)`\\__,_)(___)(___)`\\___/'(_/' (_/'   \n")
-                .append("                                                       \n")
+                .append("by Yimin An.                                           \n")
         );
         System.out.printf("\"%s Framework\" with Tomcat is started!%n", APP_NAME);
         /**
