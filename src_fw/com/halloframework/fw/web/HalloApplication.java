@@ -7,7 +7,8 @@ import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 
 /***
- * Starting Point
+ * Starting "Hallo Application"
+ * @author Yimin An
  */
 public class HalloApplication {
 
