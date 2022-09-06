@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
             return;
         }
 
-        out.println("Invalid nickname=" + nickname);
+        out.println(String.format("Invalid nickname=%s", nickname));
     }
 
     private void ryan(PrintWriter out) {
