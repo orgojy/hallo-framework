@@ -17,7 +17,7 @@ public class InitYaml {
     private boolean isRead = false;
     private String hostName = null;
     private String appRoot = null;
-    private String appName = null;
+    private String appName = "Empty Application Name";
     private String characterSet = null;
     private boolean isProduct = false;
     private boolean isCache = false;
