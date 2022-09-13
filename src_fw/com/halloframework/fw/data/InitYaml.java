@@ -13,7 +13,7 @@ public class InitYaml {
     private static final String HOST_NAME_DEFAULT = "DEFAULT";
 
     private static final InitYaml thisInc = new InitYaml();
-    private Map<String, Object> map = Collections.emptyMap();
+    private Map<String, Object> yaml = Collections.emptyMap();
     private boolean isRead = false;
     private String hostName = null;
     private String appRoot = null;
@@ -25,13 +25,15 @@ public class InitYaml {
     private int webPort = 0;
     private String webAppDir = null;
 
+
+
     private InitYaml() {
         Properties properties = System.getProperties();
         this.appName = properties.getProperty(APP_NAME_PROPERTY);
 
-        this.map = YamlReader.getMap("init");
+        this.yaml = YamlReader.getMap("init");
 
-        if (this.map.isEmpty()) {
+        if (this.yaml.isEmpty()) {
             return;
         }
 
@@ -176,13 +178,13 @@ public class InitYaml {
 
     @SuppressWarnings("unchecked")
     private Object _get(String key) {
-        if (this.map == null) {
+        if (this.yaml == null) {
             return "";
         }
 
         String[] keys = key.split("\\.");
 
-        Object obj = this.map;
+        Object obj = this.yaml;
 
         for (String thisKey : keys) {
             if (!(obj instanceof Map)) {
