@@ -25,8 +25,6 @@ public class InitYaml {
     private int webPort = 0;
     private String webAppDir = null;
 
-
-
     private InitYaml() {
         Properties properties = System.getProperties();
         this.appName = properties.getProperty(APP_NAME_PROPERTY);
