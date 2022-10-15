@@ -1,6 +1,6 @@
 # hallo-framework
 
-This is self-made framework called "Hallo Framework".
+This is self-made framework called "Hallo Framework". :palm_tree:
 
 ## Specification
 
